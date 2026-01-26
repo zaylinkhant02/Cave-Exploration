@@ -1,0 +1,821 @@
+:root {
+    --calcite: #e5e2db;
+    --basalt: #1a1c1e;
+    --oxide: #b88e65;
+    --sulfur: #d9d09a;
+    --ink: #121415;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background-image: 
+        url("Media/paper-texture.png"), 
+        radial-gradient(circle at 50% 40%, var(--calcite) 0%, #ceccc6 50%, #a5a39c 100%);
+    box-shadow: inset 0 0 150px rgba(0,0,0,0.07);
+    color: var(--basalt);
+    font-family: var(--font-sans);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+@keyframes caveFloat {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-12px);
+    }
+}
+
+.scroll-indicator .line {
+    animation: fade 4s ease-in-out infinite alternate;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0.2;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.navbar {
+    padding: clamp(15px, 4vw, 30px) 0;
+    background-color: rgba(229, 226, 219, 0.4);
+    -webkit-backdrop-filter: blur(6px) saturate(120%);
+    backdrop-filter: blur(6px) saturate(120%);
+    border-bottom: 1px solid rgba(229, 226, 219, 0.7);
+}
+
+.navbar-logo {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    text-decoration: none;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.navbar-logo span {
+    font-size: 0.6rem;
+    vertical-align: top;
+    margin-left: 5px;
+    color: var(--oxide);
+}
+
+.group {
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+}
+
+.hero-intro {
+    padding-top: 60px;
+    padding-bottom: 25px;
+    border-bottom: 1px rgba(184, 142, 101, 0.35) solid;
+    overflow: hidden;
+}
+
+.journal-date {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 2rem;
+    color: var(--oxide);
+}
+
+.main-title {
+    font-family: var(--font-serif);
+    font-size: clamp(4rem, 12vw, 9rem);
+    line-height: 0.85;
+    font-weight: 300;
+}
+
+.main-title i {
+    font-weight: 300;
+    color: var(--oxide);
+}
+
+.scroll-indicator {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.scroll-indicator .line {
+    width: 1px;
+    height: 60px;
+    background-color: var(--basalt);
+}
+
+.btn-start {
+    color: var(--basalt);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.btn-start::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--oxide);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.btn-start:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.btn-start:hover {
+    color: var(--oxide);
+}
+
+.hero-intro .container {
+    animation: caveFloat 3s ease-in-out infinite alternate;
+}
+
+.strata-section {
+    scroll-margin-top: 10px;
+    padding: clamp(80px, 15vw, 200px) 0;
+}
+
+.strata-dark {
+    background-color: var(--basalt);
+}
+
+.layer-tag {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.strata-heading {
+    font-family: var(--font-serif);
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    letter-spacing: -1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.05);
+}
+
+.strata-heading {
+    transition: color 0.4s ease, transform 0.6s ease;
+    cursor: default;
+}
+
+.strata-heading:hover {
+    color: var(--oxide);
+    transform: translateY(5px);
+}
+
+.strata-heading i {
+    transition: all 0.5s ease;
+}
+
+.strata-p {
+    font-size: 1.1rem;
+    font-weight: 200;
+    max-width: 400px;
+    line-height: 1.8;
+}
+
+.cave-frame {
+    padding: 20px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 3px;
+}
+
+.mineral-img-01 {
+    width: 100%;
+    aspect-ratio: 1/1.2;
+    background-image: url('Media/robert-thiemann-v8iCC7lS_ws-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 3px;
+    filter: grayscale(40%) contrast(110%);
+    transition: filter 0.45s ease, transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.mineral-img-01:hover {
+    filter: grayscale(20%) contrast(120%) saturate(110%);
+    transform: scale(1.012) translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.strata-p, .f-description {
+    transition: transform 0.4s ease, color 0.4s ease, opacity 0.4s ease;
+    opacity: 0.8;
+}
+
+.strata-p:hover, .f-description:hover {
+    opacity: 1;
+    transform: translateX(8px);
+    color: var(--ink);
+}
+
+.stage-num {
+    display: inline-block;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                color 0.4s ease;
+}
+
+.stage-title {
+    transition: color 0.4s ease;
+}
+
+.stage-card:hover .stage-num {
+    transform: scale(1.2) translateX(5px);
+    color: var(--oxide);
+}
+
+.stage-card:hover .stage-title {
+    color: var(--oxide);
+}
+
+.glass-card .strata-p {
+    transition: all 0.5s ease;
+}
+
+.glass-card:hover .strata-p {
+    color: white !important;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    opacity: 1;
+}
+
+.bg-basalt {
+    background-color: #3e4143;
+}
+
+.caption {
+    font-size: 0.7rem;
+    margin-top: 15px;
+    font-style: italic;
+    opacity: 0.5;
+}
+
+.bg-deep {
+    padding: clamp(120px, 15vw, 200px) 0;
+    color: var(--calcite);
+    overflow: hidden;
+    background-color: var(--ink);
+    background-image: url("Media/asfalt-dark.png");
+    background-blend-mode: screen;
+}
+
+.bg-deep .layer-tag {
+    color: var(--oxide) !important; 
+    font-weight: 600;
+    letter-spacing: 0.3em;
+}
+
+.editorial-quote-container {
+    position: relative;
+    padding-left: 60px;
+    border-left: 1px solid var(--oxide);
+}
+
+.quote-mark {
+    position: absolute;
+    top: -20px;
+    left: 15px;
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    color: var(--oxide);
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.quote-text {
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    line-height: 1.4;
+    color: var(--calcite);
+    font-style: italic;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.quote-attribution {
+    font-family: var(--font-sans);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: var(--oxide);
+    opacity: 0.8;
+}
+
+.stage-card {
+    position: relative;
+    padding: 50px 35px;
+    background: rgba(255, 255, 255, 0.01);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 0;
+    height: 100%;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.stage-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: var(--oxide);
+    transform: translateY(-15px) scale(1.02);
+}
+
+.stage-num {
+    font-family: var(--font-serif);
+    color: var(--oxide);
+    font-style: italic;
+    font-size: 1.2rem;
+    display: inline-block;
+    margin-bottom: 25px;
+}
+
+
+
+.stage-title {
+    font-family: var(--font-serif);
+    color: var(--calcite);
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+}
+
+.stage-text {
+    font-family: var(--font-sans);
+    font-weight: 200;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: rgba(229, 226, 219, 0.55);
+}
+
+#formations {
+    padding: 180px 0;
+    position: relative;
+}
+
+.header-spacing {
+    margin-bottom: 150px;
+}
+
+.design-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--oxide);
+    margin-top: 30px;
+}
+
+.image-wrapper {
+    position: relative;
+    padding: 30px;
+    border: 1px solid rgba(0,0,0,0.03); 
+    background: rgba(255,255,255,0.2);
+    border-radius: 3px;
+}
+
+.formation-img-box {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+    border-radius: 3px;
+    transition: all 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.specimen-index {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: var(--font-serif);
+    font-size: 5rem;
+    font-style: italic;
+    color: var(--oxide);
+    opacity: 0.35;
+    transform: translate(-30%, -30%);
+    z-index: -1;
+}
+
+.f-name {
+    font-family: var(--font-serif);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.f-description {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 2;
+    color: #555;
+    font-weight: 400;
+    max-width: 90%;
+}
+
+.text-md-end .f-description {
+    margin-left: auto;
+}
+
+.image-wrapper:hover .formation-img-box {
+    transform: scale(1.03);
+    box-shadow: 30px 30px 80px rgba(0,0,0,0.1);
+}
+
+.img-stalactite {
+    background-image: url('Media/stalacite-photo.jpg');
+}
+
+.img-stalagmite {
+    background-image: url('Media/stalagmite-photo.jpg');
+}
+
+.img-column {
+    background-image: url('Media/column-photo.webp');
+}
+
+.bg-index {
+    position: absolute;
+    left: -20px;
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 2vw, 3rem);
+    font-style: italic;
+    color: var(--oxide);
+    opacity: 0.1;
+    z-index: 999;
+    pointer-events: none;
+}
+
+.img-wrapper {
+    grid-column: 1 / span 8;
+    grid-row: 1;
+    z-index: 1;
+    position: relative;
+}
+
+.mineral-img-02 {
+    width: 100%;
+    height: auto;
+    min-height: 450px;
+    aspect-ratio: 16 / 9;
+    background-image: url('Media/cave-conservation.jpg'); 
+    background-size: cover;
+    background-position: center;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    border-radius: 3px;
+}
+
+.mineral-img-02:hover {
+    transform: scale(1.02);
+}
+
+.glass-card-wrapper {
+    z-index: 5;
+    margin-top: -60px;
+}
+
+.img-caption {
+    font-size: 0.6rem;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.glass-card-container {
+    margin-top: -100px;
+    z-index: 5;
+}
+
+.glass-card {
+    grid-column: 7 / span 6;
+    grid-row: 1;
+    align-self: center;
+    background: rgba(18, 20, 21, 0.7);
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    box-shadow: 40px 40px 80px rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    padding: clamp(30px, 5vw, 60px);
+    margin: 0 15px;
+}
+
+.formation-row {
+    padding-bottom: clamp(60px, 10vw, 160px);
+}
+
+.glass-card .f-name {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+}
+
+.cave-footer {
+    margin-top: 0;
+    padding: 120px 0;
+    background-color: black;
+    background-image: url("Media/flower-texture.png");
+    color: white;
+    background-blend-mode: screen; 
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: inset 0 30px 60px -20px rgba(0,0,0,0.9);
+}
+
+.footer-logo {
+    color: var(--calcite);
+    font-family: var(--font-serif);
+    letter-spacing: 15px;
+    opacity: 0.6;
+    text-decoration: none;
+}
+
+@media (min-width: 992px) {
+    .glass-card-wrapper {
+        position: absolute;
+        right: 0;
+        margin-top: 0;
+        padding: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media (max-width: 991px) {
+    .img-wrapper {
+        margin-bottom: -60px;
+    }
+    
+    .glass-card {
+        margin-left: auto;
+        margin-top: 0;
+        padding: 40px 30px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .mineral-img-02 {
+        min-height: 300px;
+        height: 50vh;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 4.5rem;
+        line-height: 1;
+    }
+
+    .strata-section {
+        padding: 80px 0;
+    }
+
+    .strata-heading {
+        font-size: 2.5rem;
+    }
+
+    .text-card-floating {
+        margin-left: 0;
+    }
+
+    .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .strata-p {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .formation-img-box {
+        aspect-ratio: 3 / 2;
+    }
+
+    .glass-card {
+        width: 100%;
+        margin: 0;
+        padding: 40px 25px;
+        background: rgba(18, 20, 21, 0.9);
+    }
+    
+    .cave-frame {
+        margin: 0 -5px;
+    }
+
+    .flex-md-row-reverse {
+        flex-direction: column !important;
+    }
+    
+    .formation-details {
+        text-align: left !important;
+        padding-top: 40px;
+    }
+
+    .glass-card .f-name {
+        font-size: 2.2rem;
+    }
+
+    .f-description {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .navbar-logo {
+        font-size: 0.9rem;
+    }
+
+    .hero-intro {
+        padding-top: 80px;
+    }
+
+    .strata-heading {
+        font-size: 1.8rem;
+    }
+
+    .cave-frame {
+        padding: 10px;
+    }
+
+    .strata-section {
+        padding: 40px 0;
+    }
+
+    .scroll-indicator .line {
+        height: 30px;
+    }
+
+    .mineral-img-01 {
+        aspect-ratio: 1/1;
+    }
+
+    .container {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    .main-title {
+        font-size: clamp(2rem, 15vw, 3rem);
+        line-height: 0.95;
+        width: 100%;
+        display: block;
+    }
+
+    #lifecycle {
+        padding: 50px 0 !important;
+    }
+
+    .editorial-quote-container {
+        padding-left: 35px;
+        border-left: 2px solid var(--oxide);
+    }
+
+    .quote-mark {
+        left: 5px;
+        font-size: 3rem;
+        top: -10px;
+    }
+
+    .stage-card {
+        padding: 25px 15px;
+        margin-bottom: 15px;
+    }
+
+    .stage-title {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .stage-text {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    #formations {
+        padding: 60px 0 !important;
+    }
+
+    .header-spacing {
+        margin-bottom: 40px;
+    }
+
+    .formation-row {
+        padding-bottom: 50px;
+    }
+
+    .image-wrapper {
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    .formation-img-box {
+        aspect-ratio: 1 / 1;
+    }
+
+    .f-name {
+        font-size: 2rem !important;
+        margin-bottom: 15px;
+    }
+
+    .f-description {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        padding: 0;
+    }
+
+    .specimen-index {
+        font-size: 3rem;
+    }
+
+    #conservation {
+        padding-bottom: 60px !important;
+    }
+
+    .mineral-img-02 {
+        min-height: 200px;
+        height: 250px;
+    }
+
+    .glass-card {
+        width: 100% !important;
+        padding: 25px 15px !important;
+        margin: -30px 0 0 0 !important;
+        background: rgba(18, 20, 21, 0.95);
+    }
+
+    .glass-card .f-name {
+        font-size: 1.6rem !important;
+    }
+
+    .strata-p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 299px) {
+    .stage-card {
+        padding: 15px 10px !important;
+    }
+
+    .stage-text {
+        font-size: 0.75rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .f-description {
+        font-size: 0.75rem !important;
+        line-height: 1.4 !important;
+        max-width: 100% !important;
+    }
+
+    .f-name {
+        font-size: 1.4rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .glass-card {
+        padding: 20px 10px !important;
+    }
+
+    .glass-card .f-description {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+    }
+}
