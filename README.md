@@ -1,6 +1,6 @@
 # 🕯️ The Art of the Underworld
 
-A designed to be immersive educational landing page exploring cave formations, erosion processes, and the fragile beauty of underground ecosystems.
+An educational landing page exploring cave formations, erosion processes, and the fragile beauty of underground ecosystems.
 
 ![The Art of the Underworld Screenshot](Media/preview.png)
 
